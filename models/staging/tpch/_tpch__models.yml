@@ -1,0 +1,20 @@
+version: 2
+
+models:
+  - name: stg_tpch__orders
+    description: "Bestellungen mit lesbaren Spaltennamen."
+    columns:
+      - name: order_id
+        description: "Primaerschluessel der Bestellung."
+        tests: [unique, not_null]
+      - name: customer_id
+        description: "Fremdschluessel auf den Kunden."
+        tests: [not_null]
+      - name: order_status
+        description: "F = fulfilled, O = open, P = partial."
+
+  # TODO Phase 1: hier die weiteren Staging-Models eintragen
+  # - name: stg_tpch__customers
+  #   columns:
+  #     - name: customer_id
+  #       tests: [unique, not_null]

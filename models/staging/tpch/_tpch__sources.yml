@@ -1,0 +1,30 @@
+version: 2
+
+sources:
+  - name: tpch
+    description: "TPC-H Beispieldaten, die Snowflake in jedem Account mitliefert."
+    database: SNOWFLAKE_SAMPLE_DATA
+    schema: TPCH_SF1
+    tables:
+      - name: orders
+        description: "Eine Zeile pro Bestellung."
+        columns:
+          - name: o_orderkey
+            tests: [unique, not_null]
+      - name: customer
+        description: "Eine Zeile pro Kunde."
+        columns:
+          - name: c_custkey
+            tests: [unique, not_null]
+      - name: lineitem
+        description: "Eine Zeile pro Bestellposition (Schluessel: l_orderkey + l_linenumber)."
+      - name: part
+        description: "Eine Zeile pro Teil/Produkt."
+      - name: partsupp
+        description: "Welcher Lieferant liefert welches Teil zu welchem Preis."
+      - name: supplier
+        description: "Eine Zeile pro Lieferant."
+      - name: nation
+        description: "25 Laender."
+      - name: region
+        description: "5 Weltregionen."
