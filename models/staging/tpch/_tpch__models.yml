@@ -13,8 +13,14 @@ models:
       - name: order_status
         description: "F = fulfilled, O = open, P = partial."
 
-  # TODO Phase 1: hier die weiteren Staging-Models eintragen
-  # - name: stg_tpch__customers
-  #   columns:
-  #     - name: customer_id
-  #       tests: [unique, not_null]
+  - name: stg_tpch__customers
+    columns:
+     - name: customer_id
+       description: "Kunden mit lesbaren Spaltennamen."
+       tests: [unique, not_null]
+     - name: market_segment
+       tests:
+         - accepted_values:
+            arguments: 
+              values: ['AUTOMOBILE', 'BUILDING', 'FURNITURE', 'HOUSEHOLD', 'MACHINERY']
+                  
